@@ -1,10 +1,72 @@
-button {
+#buttonDiv > button {
   height: 100px;
   width: 100px;
   border-radius: 100px;
-  background-color: #F24236;
+  background-color: #F28F3B;
+  color: #FFFFFF;
+  border: none;
 }
 
 .disabled {
-  background-color: #2E86AB !important;
+  background-color: #588B8B !important;
+}
+
+#buttonDiv {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#congratsDiv {
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    width: 50%;
+    border-radius: 8px;
+    background-color: #C8553D;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    visibility: hidden;
+}
+
+.congratsDivVisible {
+    visibility: visible !important;
+}
+
+#reset {
+    border-radius: 8px;
+    text-align: center;
+    background-color: #588B8B;
+    color: #FFFFFF;
+    height: 50px;
+    width: 100px;;
+    border: none;
+}
+
+#add {
+    border-radius: 8px;
+    text-align: center;
+    background-color: #F28F3B;
+    color: #FFFFFF;
+    height: 50px;
+    width: 100px;;
+    border: none;
+}
+
+#remove {
+    border-radius: 8px;
+    text-align: center;
+    background-color: #F28F3B;
+    color: #FFFFFF;
+    height: 50px;
+    width: 100px;;
+    border: none;
+}
+
+#settingsDiv {
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
