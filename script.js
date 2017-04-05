@@ -43,9 +43,19 @@ function shuffleButtonLinks(buttonList) {
         buttonList[randIndex] = temp;
     }
 
-    for (i = 0; i < buttonList.length; i++) {
+    for (let i = 0; i < buttonList.length; i++) {
         buttonList[i].next = buttonList[(i + 1) % buttonList.length];
     }
+}
+
+function addButton() {
+    buttonCount += 1;
+    resetPuzzle();
+}
+
+function removeButton() {
+    buttonCount -= 1;
+    resetPuzzle();
 }
 
 function resetPuzzle() {
@@ -54,11 +64,25 @@ function resetPuzzle() {
         item.enabled = true;
     });
     buttonList = [];
+    document.getElementById("buttonDiv").innerHTML = "";
     document.getElementById("congratsDiv").classList.remove("congratsDivVisible");
-    buttonList.push(new Button(null, document.getElementById('button0'), true));
-    buttonList.push(new Button(null, document.getElementById('button1'), true));
-    buttonList.push(new Button(null, document.getElementById('button2'), true));
-    buttonList.push(new Button(null, document.getElementById('button3'), true));
+    for(let i = 0; i < buttonCount; i++) {
+        let button = document.createElement('button');
+        button.innerHTML = "<p>On</p>";
+        button.id = "button" + i;
+        document.getElementById("buttonDiv").appendChild(button);
+        buttonList.push(new Button(null, document.getElementById('button' + i), true));
+    }
+    buttons = document.getElementById("buttonDiv").childNodes;
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function() {
+            toggleButton(buttonList[i]);
+        }, false);
+    }
+    // buttonList.push(new Button(null, document.getElementById('button0'), true));
+    // buttonList.push(new Button(null, document.getElementById('button1'), true));
+    // buttonList.push(new Button(null, document.getElementById('button2'), true));
+    // buttonList.push(new Button(null, document.getElementById('button3'), true));
     shuffleButtonLinks(buttonList.slice(0));
 }
 
