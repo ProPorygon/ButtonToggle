@@ -8,9 +8,13 @@ function toggleButton(button) {
     button.element.classList.toggle('disabled');
     button.enabled = !(button.enabled);
     toggleText(button);
-    button.next.element.classList.toggle('disabled');
-    button.next.enabled = !(button.next.enabled);
-    toggleText(button.next);
+    let current = button.next;
+    for(let i = 0; i < association; i++) {
+        current.element.classList.toggle('disabled');
+        current.enabled = !(current.enabled);
+        toggleText(current);
+        current = current.next;
+    }
     let done = true;
     buttonList.forEach(function(item) {
         done &= !item.enabled
@@ -64,6 +68,7 @@ function resetPuzzle() {
         item.enabled = true;
     });
     buttonList = [];
+
     document.getElementById("buttonDiv").innerHTML = "";
     document.getElementById("congratsDiv").classList.remove("congratsDivVisible");
     for(let i = 0; i < buttonCount; i++) {
@@ -73,21 +78,34 @@ function resetPuzzle() {
         document.getElementById("buttonDiv").appendChild(button);
         buttonList.push(new Button(null, document.getElementById('button' + i), true));
     }
+
     buttons = document.getElementById("buttonDiv").childNodes;
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', function() {
             toggleButton(buttonList[i]);
         }, false);
     }
-    // buttonList.push(new Button(null, document.getElementById('button0'), true));
-    // buttonList.push(new Button(null, document.getElementById('button1'), true));
-    // buttonList.push(new Button(null, document.getElementById('button2'), true));
-    // buttonList.push(new Button(null, document.getElementById('button3'), true));
+
+    let select = document.getElementById("assoc");
+    select.innerHTML = "";
+    for(let i = 0; i < buttonCount; i++) {
+        let option = document.createElement("option");
+        option.text = i;
+        select.add(option);
+    }
+    select.addEventListener("change", function() {
+        association = select.selectedIndex;
+        console.log(association);
+        resetPuzzle();
+    })
+    select.value = association;
+
     shuffleButtonLinks(buttonList.slice(0));
 }
 
 let buttonList = [];
 let buttonCount = 4;
+let association = 1;
 
 window.onload = function() {
     resetPuzzle();

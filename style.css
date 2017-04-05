@@ -5,6 +5,7 @@
   background-color: #F28F3B;
   color: #FFFFFF;
   border: none;
+  font-size: 18pt;
 }
 
 .disabled {
@@ -17,10 +18,10 @@
 }
 
 #congratsDiv {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     width: 50%;
     border-radius: 8px;
     background-color: #C8553D;
@@ -28,6 +29,7 @@
     text-align: center;
     padding: 10px;
     visibility: hidden;
+    font-size: 14pt;
 }
 
 .congratsDivVisible {
@@ -39,9 +41,11 @@
     text-align: center;
     background-color: #588B8B;
     color: #FFFFFF;
-    height: 50px;
+    height: 60px;
     width: 100px;;
     border: none;
+    display: inline;
+    font-size: 14pt;
 }
 
 #add {
@@ -49,9 +53,11 @@
     text-align: center;
     background-color: #F28F3B;
     color: #FFFFFF;
-    height: 50px;
-    width: 100px;;
+    height: 60px;
+    width: 100px;
     border: none;
+    display: inline;
+    font-size: 14pt;
 }
 
 #remove {
@@ -59,14 +65,34 @@
     text-align: center;
     background-color: #F28F3B;
     color: #FFFFFF;
-    height: 50px;
-    width: 100px;;
+    height: 60px;
+    width: 100px;
     border: none;
+    display: inline;
+    font-size: 14pt;
 }
 
 #settingsDiv {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+#assocSpan {
+    border-radius: 8px;
+    text-align: left;
+    background-color: #588B8B;
+    color: #FFFFFF;
+    height: 60px;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    display: inline-flex;
+    font-size: 14pt;
+}
+
+select {
+    float: right;
 }
