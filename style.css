@@ -1,0 +1,10 @@
+button {
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  background-color: #F24236;
+}
+
+.disabled {
+  background-color: #2E86AB !important;
+}
