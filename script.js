@@ -58,7 +58,12 @@ function addButton() {
 }
 
 function removeButton() {
-    buttonCount -= 1;
+    if(buttonCount == 1) {
+        alert("You can't remove any more buttons!");
+    }
+    else {
+        buttonCount -= 1;
+    }
     resetPuzzle();
 }
 
